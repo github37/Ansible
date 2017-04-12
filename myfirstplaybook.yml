@@ -19,3 +19,10 @@
       action: yum name=telnet state=absent
     - name: yum name= Install Git
       action: yum pkg=git state=latest update_cache=true 
+    - name: Install Apache Web Server
+      action: yum name=httpd state=installed
+      notify: Restart HTTPD
+  handlers:
+    - name: Restart HTTPD
+      action: service name=httpd state=restarted 
+
