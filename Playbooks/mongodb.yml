@@ -8,8 +8,14 @@
  #    command: touch /etc/yum.repos.d/mongodb-org-2.6.repo
  # -  name: Installing the MongoDB from baseUrl
  #   get_url: url=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/  dest=/etc/yum.repos.d/mongodb-org-2.6.repo  
+  - name: Creating the Data/db direcory
+    file: state=directory path=/data/db
   - name: Copy repo files to remote nodes
     action: copy src=/home/test/Ansible/Playbooks/mongodb.repo dest=/etc/yum.repos.d/mongodb.repo
   - name: Installing the Mongodb package
     yum: pkg=mongodb-org state=installed
+  - name: Starting the MongoDb service
+    service: name=mongod state=started
+  - name: Storing remote ipaddress
+    command: ifconfig  >/home/test/ping.out
 
