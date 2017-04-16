@@ -3,11 +3,9 @@
   user: test
   sudo: yes
   connection: ssh
-  gather_facts: yes
   tasks:
-    - name: Run a rremote ping on the application server
-      command: ping -c 4 'rajaunix3' > /home/test/Playbooks/ping.out
-      delegate_to: localhost
-    - name: Install the package
-      yum: pkg=lynx state=latest
-    
+    - name: Run a remote ping on the application server
+      command: ping -c 4 rajaunix4 > /home/test/Playbooks/Ping1.out
+      delegate_to: 127.0.0.1
+    - name: Install package
+      apt: pkg=lynx state=latest 
