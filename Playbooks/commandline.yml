@@ -1,0 +1,8 @@
+--- # Variables Commandline
+- hosts: '{{ hosts }}'
+  user: '{{ user }}'
+  sudo: yes
+  connection: ssh
+  tasks: 
+    - name: Install a package
+      yum: pkg={{ pkg }} state=latest

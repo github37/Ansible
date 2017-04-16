@@ -1,0 +1,16 @@
+--- # This is our Prompt for usrpackage example
+- hosts: apachehosts
+  user: test
+  sudo: yes
+  connection: ssh
+  garther_facts: no
+  vars: 
+    playbook_version: 1.b
+  vars_prompt: 
+    - name: pkgtoinstall
+      prompt: Install which Packahe?
+      default: telnet
+      private: no
+  tasks:
+    - name: Install the indicated packge
+      yum: pkg={{ pkgtoinstall }} state=latest

@@ -1,0 +1,6 @@
+- name: Install Apache Web server
+  yum: pkg=httpd state=latest
+  notify: Restart HTTPD
+- name: Install elinks
+  yum: pkg=elinks state=latest
+

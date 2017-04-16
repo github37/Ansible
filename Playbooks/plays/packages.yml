@@ -1,0 +1,4 @@
+- name: Install the Telnet Client
+  yum: pkg=telnet state=latest
+- name: Install elinks 
+  yum: pkg=elinks state=latest

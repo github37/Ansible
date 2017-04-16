@@ -1,0 +1,2 @@
+control_server: helios.mylabserver.com
+web_root: /var/www/html/
