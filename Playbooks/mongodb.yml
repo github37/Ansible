@@ -1,4 +1,4 @@
---- # MONGODB INSTALLATION
+--- # MONGODB INSTALLATIONi
 - hosts: myhosts
   connection: ssh
   sudo: yes
@@ -7,9 +7,9 @@
  # -  name: Creating the MONGODB Repos directory
  #    command: touch /etc/yum.repos.d/mongodb-org-2.6.repo
  # -  name: Installing the MongoDB from baseUrl
-  #   get_url: url=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/  dest=/etc/yum.repos.d/mongodb-org-2.6.repo  
-  
-
+ #   get_url: url=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64/  dest=/etc/yum.repos.d/mongodb-org-2.6.repo  
+  - name: Copy repo files to remote nodes
+    action: copy src=/home/test/Ansible/Playbooks/mongodb.repo dest=/etc/yum.repos.d/mongodb.repo
   - name: Installing the Mongodb package
     yum: pkg=mongodb-org state=installed
 
