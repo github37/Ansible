@@ -1,0 +1,11 @@
+--- # localhost example
+- hosts: myhosts:apachehosts
+  user: test
+  connection: ssh
+  sudo: yes
+  gather_facts: no
+  tasks: 
+    - name: Ping application server before we run our install
+      local_action: command ping -c 2 rajaunix3
+    - name: Install Lynx on remote server
+      yum: pkg=lynx  state=latest

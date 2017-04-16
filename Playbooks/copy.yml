@@ -1,0 +1,8 @@
+--- # COPY MODULE EXAMPLE
+- host: myhosts
+  user: test
+  connection: ssh
+  sudo: yes
+  tasks: 
+  -  name: Copy files from Controler to host
+     action: copy src= 

@@ -1,0 +1,13 @@
+--- # TEsting the j2 template module
+- hosts: apcahehosts:myhosts
+  connection: ssh
+  user: test
+  sudo: yes
+  gather_facts: yes
+  vars: 
+    userName: test
+    userPassword: Admin@37
+    connectionType: SFTP
+  tasks:
+    - name: Install the confiruration file customised for the system
+      template: src=test.conf.j2i

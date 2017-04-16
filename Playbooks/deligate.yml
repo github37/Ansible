@@ -1,0 +1,13 @@
+--- # deligate to Function 
+- hosts: myhosts
+  user: test
+  sudo: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Run a rremote ping on the application server
+      command: ping -c 4 'rajaunix3' > /home/test/Playbooks/ping.out
+      delegate_to: localhost
+    - name: Install the package
+      yum: pkg=lynx state=latest
+    
