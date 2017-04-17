@@ -17,5 +17,5 @@
   - name: Starting the MongoDb service
     service: name=mongod state=started
   - name: Storing remote ipaddress
-    command: ifconfig  >/home/test/ping.out
+    shell: /usr/sbin/ifconfig  >/home/test/ipaddress.out
 
