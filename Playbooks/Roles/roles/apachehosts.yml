@@ -1,0 +1,13 @@
+--- # Master Playbook for Apcheweb
+- hosts: apachehosts
+  user: test
+  connection: ssh
+  sudo: yes
+  pre_tasks:
+  - name: When did the Role start
+    raw: date > /home/test/startrole.log
+  roles:
+   - apachehosts
+  post_tasks:
+  - name: When did the Role stop
+    raw: date > /home/test/stoprole.log
